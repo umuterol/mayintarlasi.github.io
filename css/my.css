@@ -1,0 +1,162 @@
+
+
+
+
+
+#allDiv{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 1px solid;
+    margin-top: 0%;
+    margin-top: 2%;
+    margin-bottom: 10%;
+}
+
+
+
+
+ table{
+     width:100%;
+     background-color: rgba(255, 255, 255, 0.664);
+ }
+
+td{
+    border: 2px solid;
+    text-align: center;
+
+}
+.td-easy{
+    width: 4%; 
+}
+.td-medium{
+    width: 4%; 
+}
+.td-hard{
+    width: 3.3%; 
+}
+
+img{
+    height: 10px;
+}
+
+
+body{
+    background-color: rgba(128, 128, 128, 0.438);
+} 
+
+
+
+
+.one{
+    color: green;
+}
+
+.two{
+    color:blue;
+}
+
+.three{
+    color:red;
+}
+
+.four{
+    color: purple;
+}
+
+.five{
+    color: pink;
+}
+
+.six{
+    color: orange;
+}
+
+.seven{
+    color: yellowgreen;
+}
+
+.eight{
+    color: lightskyblue;
+}
+
+
+@media screen and (max-width: 1000px){
+#allDiv{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* border: 1px solid; */
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+}  
+
+
+@media screen and (min-width: 1600px){
+    img{
+        height: 20px;
+    }
+    
+}
+
+
+
+
+.closed{
+
+    background-color: rgba(255, 255, 255, 0.664);
+
+}
+
+
+#state{
+    display: flex;
+    width: 100%;
+    
+}
+
+select{
+    width: 50%;
+    height: 30px;
+    background-color: rgba(128, 128, 128, 0.055);
+    font-size: 25px;
+}
+
+
+.easy{
+    color: green;
+}
+
+.medium{
+    color: blue;
+}
+
+.hard{
+    color: red;
+}
+
+
+
+#stateFlag{
+   
+    margin-left: 37%;
+    margin-top: 5px;
+    
+    height: 30px !important;
+    /* border: 1px solid gray; */
+}
+
+#numberFlag{
+    margin-left: 1%;
+    font-size: 25px;
+    color: rgba(255, 0, 0, 0.781);
+    /* border: 2px solid gray; */
+    margin-top: 0.7%;
+}
+
+
+
+.fill{
+    background-color: yellowgreen;
+}
