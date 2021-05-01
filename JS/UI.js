@@ -71,7 +71,7 @@ class UI {
 
             target.firstChild.src = "../image/flag.svg";
             target.firstChild.id = "flag";
-            target.style = "color:red"
+            target.classList.add ("flag")
 
             let numberFlag = (Number)(this.numberFlag.innerHTML);
             this.numberFlag.innerHTML = --numberFlag;
@@ -84,7 +84,7 @@ class UI {
     removeFlagFromUI(target) {
         target.src = "";
         target.id = "null";
-        target.parentElement.style = "color:none";
+        target.parentElement.classList.remove("flag");
 
         let numberFlag = (Number)(this.numberFlag.innerHTML);
         this.numberFlag.innerHTML = ++numberFlag;
@@ -117,7 +117,7 @@ class UI {
                     const id = `${i}_${j}`;
                     const square = document.getElementById(id);
                     square.firstChild.src = `../image/${column}.png`;
-                    square.firstChild.id = "-1";
+                    square.firstChild.id = column;
                 }
 
 
@@ -136,7 +136,8 @@ class UI {
 
         if (value > 0 && value < 9) {
 
-            target.firstChild.src = `../image/${value}.png`
+            target.firstChild.src = `../image/${value}.png`;
+            target.firstChild.id=value;
             field[i][j] = 10;
         }
 
@@ -145,6 +146,7 @@ class UI {
 
         else if (value == -1) {
             target.firstChild.src = `../image/bomb.svg`;
+            target.firstChild.id=value;
             this.gameOver(field);
 
         }
@@ -221,14 +223,20 @@ class UI {
 
 
         if (field[i][j] == 0) {
+            document.getElementById(`${i}_${j}`).classList.remove("flag");
             document.getElementById(`${i}_${j}`).classList.add("fill");
+            document.getElementById(`${i}_${j}`).firstChild.src="";
+            document.getElementById(`${i}_${j}`).firstChild.id=0;
             field[i][j] = 10; //Birdaha bakilmasin
+            
         }
         else if (field[i][j] == 10) {
             return;
         }
         else {
             document.getElementById(`${i}_${j}`).firstChild.src = `../image/${field[i][j]}.png`;
+            document.getElementById(`${i}_${j}`).firstChild.id=field[i][j];
+            document.getElementById(`${i}_${j}`).classList.remove("flag");
             field[i][j] = 10;
             return;
         }
@@ -239,7 +247,7 @@ class UI {
         this.fillEmpty(field, i - 1, j);
         this.fillEmpty(field, i + 1, j);
         this.fillEmpty(field, i, j - 1);
-        
+
 
     }
 
@@ -274,7 +282,6 @@ class UI {
             })
         });
 
-        console.log(control);
 
         setTimeout(() => {
             this.showAlert("Game Over");

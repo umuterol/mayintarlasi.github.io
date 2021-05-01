@@ -18,20 +18,16 @@ function addEventListeners() {
 
 
 
-
 function changeSelect() {
+//setLocalStorage
+localStorage.setItem("selectedIndex",select.selectedIndex);
 
-    //set localstorage
-    localStorage.setItem("selectedIndex",select.selectedIndex);
+mode();
 
+}
 
-    mode();
-
-};
-
-
-function mode() { 
-    start = 0;
+function mode(){
+     start=0;
 
     const selectOption = select.children[select.selectedIndex];
     select.className = selectOption.className;
@@ -43,7 +39,7 @@ function mode() {
     }
 
     else if (selectOption.value === "1") {
-        ui.createTable(20, 25, "td-medium", 30);
+        ui.createTable(20, 25, "td-medium", 45);
         // fi.createFieldArray(20, 25, 60);
         // ui.showAllField(fi.getField());
     }
@@ -53,19 +49,13 @@ function mode() {
         // fi.createFieldArray(25, 30, 100);
         // ui.showAllField(fi.getField());
     }
-
 }
 
 
 
 function loadField() {
-    const localSelect=localStorage.getItem("selectedIndex");
-
-    //if localSelect is not null
-    if(localSelect)
-    select.selectedIndex=localSelect;
-
-    mode();
+    select.selectedIndex=localStorage.getItem("selectedIndex");
+    changeSelect();
 }
 
 
@@ -86,7 +76,7 @@ function clickField(e) {
                 if (select.value === "0")
                     fi.createFieldArray(10, 25, 10, i, j);
                 else if (select.value === "1")
-                    fi.createFieldArray(20, 25, 30, i, j);
+                    fi.createFieldArray(20, 25, 45, i, j);
                 else if (select.value === "2")
                     fi.createFieldArray(25, 30, 100, i, j);
             }
@@ -106,8 +96,8 @@ function clickField(e) {
 
 
 function getIndex(target) {
-    const index = target.id.split("_");
-
+    const index =target.id.split("_");
+    
 
     return index;
 }
@@ -116,6 +106,7 @@ function getIndex(target) {
 
 
 function rightClickField(e) {
+
     if (e.target.tagName === "TD") {
 
         ui.addFlagToUI(e.target);
@@ -126,9 +117,13 @@ function rightClickField(e) {
     }
 
 
-    console.log();
     e.preventDefault();
 }
+
+
+
+
+
 
 
 

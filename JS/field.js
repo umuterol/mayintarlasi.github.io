@@ -90,7 +90,7 @@ class Field {
         //start
         const start = this.start(row, column, i, j);
 
-        console.log(...start);
+        //console.log(...start);
 
 
         while (controller) {

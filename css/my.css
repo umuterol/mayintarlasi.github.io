@@ -160,3 +160,7 @@ select{
 .fill{
     background-color: yellowgreen;
 }
+
+.flag{
+    color:red;
+}
